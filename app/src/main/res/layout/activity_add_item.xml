@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post a Lost / Found Item"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#212121"
+            android:layout_marginBottom="16dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Type *" android:textStyle="bold" android:textColor="#333"/>
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rounded_input"
+            android:padding="8dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Title *" android:textStyle="bold" android:textColor="#333"/>
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="e.g. Black iPhone 14"
+            android:background="@drawable/rounded_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Category *" android:textStyle="bold" android:textColor="#333"/>
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/rounded_input"
+            android:padding="8dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Description" android:textStyle="bold" android:textColor="#333"/>
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describe the item..."
+            android:background="@drawable/rounded_input"
+            android:padding="12dp"
+            android:lines="3"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="12dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Location *" android:textStyle="bold" android:textColor="#333"/>
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Where was it lost/found?"
+            android:background="@drawable/rounded_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Your Name *" android:textStyle="bold" android:textColor="#333"/>
+        <EditText
+            android:id="@+id/etContactName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full name"
+            android:background="@drawable/rounded_input"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Phone Number" android:textStyle="bold" android:textColor="#333"/>
+        <EditText
+            android:id="@+id/etContactPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="e.g. 0412 345 678"
+            android:background="@drawable/rounded_input"
+            android:padding="12dp"
+            android:inputType="phone"
+            android:layout_marginBottom="12dp"/>
+
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Image *" android:textStyle="bold" android:textColor="#333"/>
+        <Button
+            android:id="@+id/btnPickImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Image from Gallery"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:layout_marginBottom="8dp"/>
+        <ImageView
+            android:id="@+id/ivPreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:background="#E0E0E0"
+            android:src="@drawable/ic_image_placeholder"
+            android:layout_marginBottom="16dp"/>
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Item"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>
