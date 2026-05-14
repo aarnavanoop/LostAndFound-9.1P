@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,11 +23,11 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseHelper dbHelper;
-    private ItemAdapter adapter;
-    private RecyclerView recyclerView;
-    private EditText etSearch;
-    private Spinner spinnerCategory;
-    private TextView tvEmpty;
+    private ItemAdapter    adapter;
+    private RecyclerView   recyclerView;
+    private EditText       etSearch;
+    private Spinner        spinnerCategory;
+    private TextView       tvEmpty;
 
     private String selectedCategory = "All";
 
@@ -40,19 +41,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dbHelper      = new DatabaseHelper(this);
-        recyclerView  = findViewById(R.id.recyclerView);
-        etSearch      = findViewById(R.id.etSearch);
+        dbHelper        = new DatabaseHelper(this);
+        recyclerView    = findViewById(R.id.recyclerView);
+        etSearch        = findViewById(R.id.etSearch);
         spinnerCategory = findViewById(R.id.spinnerCategory);
-        tvEmpty       = findViewById(R.id.tvEmpty);
+        tvEmpty         = findViewById(R.id.tvEmpty);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(v ->
             startActivity(new Intent(this, AddItemActivity.class)));
 
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this,
-            android.R.layout.simple_spinner_item, CATEGORIES);
+        Button btnShowOnMap = findViewById(R.id.btnShowOnMap);
+        btnShowOnMap.setOnClickListener(v ->
+            startActivity(new Intent(this, MapActivity.class)));
+
+
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
+            this, android.R.layout.simple_spinner_item, CATEGORIES);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCategory.setAdapter(spinnerAdapter);
 
@@ -62,19 +68,15 @@ public class MainActivity extends AppCompatActivity {
                 selectedCategory = CATEGORIES[pos];
                 refreshList();
             }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            @Override public void onNothingSelected(AdapterView<?> parent) {}
         });
 
 
         etSearch.addTextChangedListener(new TextWatcher() {
-            @Override public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-            @Override public void onTextChanged(CharSequence s, int start, int before, int count) {
-                refreshList();
-            }
+            @Override public void beforeTextChanged(CharSequence s, int st, int c, int a) {}
+            @Override public void onTextChanged(CharSequence s, int st, int b, int c) { refreshList(); }
             @Override public void afterTextChanged(Editable s) {}
         });
-
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<Item> items = dbHelper.getAllItems();
@@ -95,11 +97,9 @@ public class MainActivity extends AppCompatActivity {
         List<Item> items;
 
         if (query.isEmpty()) {
-            if (selectedCategory.equals("All")) {
-                items = dbHelper.getAllItems();
-            } else {
-                items = dbHelper.getItemsByCategory(selectedCategory);
-            }
+            items = selectedCategory.equals("All")
+                ? dbHelper.getAllItems()
+                : dbHelper.getItemsByCategory(selectedCategory);
         } else {
             items = dbHelper.searchItems(query, selectedCategory);
         }

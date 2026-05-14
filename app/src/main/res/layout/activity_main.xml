@@ -39,6 +39,7 @@
             android:imeOptions="actionSearch"
             android:singleLine="true"/>
 
+
         <Spinner
             android:id="@+id/spinnerCategory"
             android:layout_width="match_parent"
@@ -47,6 +48,16 @@
             android:background="@drawable/rounded_input"
             android:padding="8dp"/>
 
+
+        <Button
+            android:id="@+id/btnShowOnMap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="🗺  Show All Items on Map"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/tvEmpty"
@@ -59,12 +70,13 @@
             android:layout_marginTop="60dp"
             android:visibility="gone"/>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:clipToPadding="false"
             android:paddingBottom="80dp"/>
 

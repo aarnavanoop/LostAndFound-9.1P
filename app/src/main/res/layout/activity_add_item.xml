@@ -72,13 +72,29 @@
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Location *" android:textStyle="bold" android:textColor="#333"/>
+
         <EditText
             android:id="@+id/etLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Where was it lost/found?"
+            android:hint="Tap to search for a location…"
             android:background="@drawable/rounded_input"
             android:padding="12dp"
+            android:focusable="false"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:drawableEnd="@android:drawable/ic_menu_mylocation"
+            android:drawablePadding="8dp"
+            android:layout_marginBottom="8dp"/>
+
+
+        <Button
+            android:id="@+id/btnGetLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📍  Get Current Location"
+            android:backgroundTint="@color/colorPrimaryLight"
+            android:textColor="#FFFFFF"
             android:layout_marginBottom="12dp"/>
 
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
